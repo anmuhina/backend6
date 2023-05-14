@@ -12,6 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $stmt->execute();
         //$values = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $values = $stmt->fetchAll();
+    
+        $stmt = $db->prepare("select ab_id from application_ability where app_id = ?");
+        $stmt->execute([$values['id']]);
+        $abil = $stmt->fetchAll(PDO::FETCH_COLUMN);
   }
   catch (PDOException $e) {
         print('Error : ' . $e->getMessage());
