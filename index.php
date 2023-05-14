@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $messages = array();
   
   try {
-        $stmt = $db->prepare("SELECT id, name, email, birth_date, sex, amount_of_limbs, biography FROM application1");
+        $stmt = $db->prepare("select id, name, email, birth_date, sex, amount_of_limbs, biography from application1");
         $stmt->execute();
         //$values = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $values = $stmt->fetchAll();
@@ -63,6 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   }
   
   include('admin.php');
+  exit();
 }
 
 // Иначе, если запрос был методом POST, т.е. нужно проверить данные и сохранить их в XML-файл.
@@ -70,7 +71,7 @@ else {
   $errors = FALSE;
   
   foreach ($_POST as $key => $value) {
-        if (preg_match('/^Удалить пользователя (\d+)$/', $key, $matches)) {
+        if (preg_match('/^delete(\d+)$/', $key, $matches)) {
             $app_id = $matches[1];
             $stmt = $db->prepare("delete from application1 where id = ?");
             $stmt->execute([$app_id]);
@@ -79,17 +80,17 @@ else {
             $stmt = $db->prepare("delete from application_ability where id = ?");
             $stmt->execute([$app_id]);
         }
-        if (preg_match('/^Сохранить изменения для пользователя (\d+)$/', $key, $matches)) {
+        if (preg_match('/^save(\d+)$/', $key, $matches)) {
             $app_id = $matches[1];
             $info = array();
-            $info['name'] = $_POST['name'.$app_id];
-            $info['email'] = $_POST['email'.$app_id];
-            $info['birth_date'] = $_POST['birth_date'.$app_id];
-            $info['sex'] = $_POST['sex'.$app_id];
-            $info['amount_of_limbs'] = $_POST['amount_of_limbs'.$app_id];
-            $info['biography'] = $_POST['biography'.$app_id];
+            $info['name'] = $_POST['name' . $app_id];
+            $info['email'] = $_POST['email' . $app_id];
+            $info['birth_date'] = $_POST['birth_date' . $app_id];
+            $info['sex'] = $_POST['sex' . $app_id];
+            $info['amount_of_limbs'] = $_POST['amount_of_limbs' . $app_id];
+            $info['biography'] = $_POST['biography' . $app_id];
           
-            $abilities1 = $_POST['abilities'.$app_id];
+            $abilities1 = $_POST['abilities' . $app_id];
         
             $name = $info['name'];
             $email = $info['email'];
