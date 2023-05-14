@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $errors['amount_of_limbs'] = !empty($_COOKIE['amountOfLimbs_error']);
   $errors['abilities'] = !empty($_COOKIE['abilities_error']);
   $errors['biography'] = !empty($_COOKIE['biography_error']);
-  $errors['id'] = !empty($_COOKIE['id_error']);
+  $errors['app_id'] = !empty($_COOKIE['id_error']);
   
   // Выдаем сообщения об ошибках.
   if ($errors['name']) {
