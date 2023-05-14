@@ -69,7 +69,7 @@ print('Вы успешно авторизовались и видите защи
                            <label><input type="radio" name="amount_of_limbs'.$val['id'].'" value="3"'; if ($val['amount_of_limbs']==3) {print 'checked="checked"';} print '> 3</label>
                            <label><input type="radio" name="amount_of_limbs'.$val['id'].'" value="4"'; if ($val['amount_of_limbs']==4) {print 'checked="checked"';} print '> 4</label>
                       </td>
-                      <td> <select name="abilities[]'.$val['id'].'" multiple="multiple"> 
+                      <td> <select name="abilities'.$val['id'].'[]" multiple="multiple"> 
                            <option value="Бессмертие"'; if (in_array('Бессмертие', $val['abilities'])) {print 'selected="selected"';} print '>Бессмертие</option>
                            <option value="Прохождение сквозь стены"'; if (in_array('Прохождение сквозь стены', $val['abilities'])) {print 'selected="selected"';} print '>Прохождение сквозь стены</option>
                            <option value="Левитация"'; if (in_array('Левитация', $val['abilities'])) {print 'selected="selected"';} print '>Левитация</option>
