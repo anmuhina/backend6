@@ -91,13 +91,13 @@ print('Вы успешно авторизовались и видите защи
             
             $stmt=$db->prepare("select count(app_id) from application_ability group by ab_id having ab_id=?");
             $stmt->execute([$imm_id]);
-            $imm_count=stmt->fetchColumn();
+            $imm_count=$stmt->fetchColumn();
             
             $stmt->execute([$wall_id]);
-            $wall_count=stmt->fetchColumn();
+            $wall_count=$stmt->fetchColumn();
             
             $stmt->execute([$fly_id]);
-            $fly_count=stmt->fetchColumn();
+            $fly_count=$stmt->fetchColumn();
             
             print '<br>Количество пользователей со сверхспособностью "Бессмертие": '; print(empty($imm_count) ? '0' : $imm_count); print '<br>
             Количество пользователей со сверхспособностью "Прохождение сквозь стены": '; print(empty($wall_count) ? '0' : $wall_count); print '<br>
