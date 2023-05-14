@@ -10,8 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   try {
         $stmt = $db->prepare("select id, name, email, birth_date, sex, amount_of_limbs, biography from application1");
         $stmt->execute();
-        //$values = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $values = $stmt->fetchAll();
+        $values = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        //$values = $stmt->fetchAll();
     
   }
   catch (PDOException $e) {
@@ -75,9 +75,7 @@ else {
             $app_id = $matches[1];
             $stmt = $db->prepare("delete from application1 where id = ?");
             $stmt->execute([$app_id]);
-            $stmt = $db->prepare("delete from ability1 where id = ?");
-            $stmt->execute([$app_id]);
-            $stmt = $db->prepare("delete from application_ability where id = ?");
+            $stmt = $db->prepare("delete from application_ability where app_id = ?");
             $stmt->execute([$app_id]);
         }
         if (preg_match('/^save(\d+)$/', $key, $matches)) {
@@ -160,8 +158,8 @@ else {
           
             $stmt = $db->prepare("select name, email, birth_date, sex, amount_of_limbs, biography from application1 where id = ?");
             $stmt->execute([$app_id]);
-            //$info1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $info1 = $stmt->fetchAll();
+            $info1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            //$info1 = $stmt->fetchAll();
 
             $stmt = $db->prepare("select ab_id from application_ability where app_id = ?");
             $stmt->execute([$app_id]);
