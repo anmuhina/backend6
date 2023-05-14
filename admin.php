@@ -32,109 +32,58 @@ print('Вы успешно авторизовались и видите защи
 // Здесь нужно прочитать отправленные ранее пользователями данные и вывести в таблицу.
 // Реализовать просмотр и удаление всех данных.
 // *********
-
-<?php
-if (!empty($messages)) {
-  print('<div id="messages">');
-  foreach ($messages as $message) {
-    print($message);
-  }
-  print('</div>');
-}
-?>
       
 <form action="" class="forma" method="POST">
-  <?php  
-    foreach($values as $value) {
-    <?php  
-        echo
-    '<label>
-        ID:<br>
-        <input id="data" name="app_id" value="'; print($value['app_id']);  echo '" >
-    </label><br>
-    
-    <label>
-        Имя:<br>
-        <input id="data" name="name" value="'; print ($value['name']); echo '" >
-    </label><br>
-    <label>
-        Email:<br>
-        <input id="data" name="email" type="email" value="'; print($value['email']); echo '" >
-    </label><br>
-    <label>
-        Дата рождения:<br>
-         <select id="data" name="birth_date" >';
-           
-                 $birthdate=$value['birth_date'];
-                 /*if ($value['birth_date']=='') {
-                         for ($i = 1922; $i <= 2022; $i++) {
-                            printf('<option value="%d">%d год</option>', $i, $i);
-                         }
-                 }
-                 else {*/
-                         printf('<option value="%d">%d год</option>', $birthdate, $birthdate);
-                         for ($i = 1922; $i <= 2022; $i++) {
-                            printf('<option value="%d">%d год</option>', $i, $i);
-                         }
-                 //}
-        ; echo 
-        '</select>
-    </label><br>
+  <table>
+          <tr>
+                  <th>ID</th>
+                  <th>NAME</th>
+                  <th>EMAIL</th>
+                  <th>BIRTH YEAR</th>
+                  <th>SEX</th>
+                  <th>AMOUNT OF LIMBS</th>
+                  <th>SUPERPOWERS</th>
+                  <th>BIOGRAPHY</th>
+                  <th>ACTION</th>
+          </tr>
           
-    Пол:<br>
-        <div>';
-             
-                /*if ($value['sex']=='') {
-                           print ('<label><input id="data" type="radio" name="sex" value="ж">Ж</label> 
-                           <label><input id="data" type="radio" name="sex" value="м">М</label><br>');
-                }
-                else {*/
-                  echo '<label><input id="data" type="radio" name="sex" value="ж"'; if ($value['sex']=='ж') print('checked="checked"'); echo '>Ж</label> 
-                  <label><input id="data" type="radio" name="sex" value="м"'; if ($value['sex']=='м') print('checked="checked"'); echo '>М</label><br>';       
-                //}
-       echo '</div>
-        
-    Количество конечностей:<br />
-        <div>';
-                /*if ($values['amount_of_limbs']=='') {
-                        print ('<label><input id="data" type="radio" name="amount_of_limbs" value="2"> 2 </label>
-                        <label><input id="data" type="radio" name="amount_of_limbs" value="3"> 3 </label>
-                        <label><input id="data" type="radio" name="amount_of_limbs" value="4"> 4 </label><br>');
-                }
-                else {*/
-                echo
-                       ' <label><input id="data" type="radio" name="amount_of_limbs" value="2"'; if ($value['amount_of_limbs']==2) print('checked="checked"'); echo '> 2 </label>
-                        <label><input id="data" type="radio" name="amount_of_limbs" value="3"'; if ($value['amount_of_limbs']==3) print('checked="checked"'); echo '> 3 </label>
-                        <label><input id="data" type="radio" name="amount_of_limbs" value="4"'; if ($value['amount_of_limbs']==4) print('checked="checked"'); echo '> 4 </label><br>';
-                //} 
-        echo '</div>
-        
-    <label>
-        Сверхспособности:<br>
-        <select id="data" name="abilities[]" multiple="multiple" >';
-                /*if (empty($values['abilities']) || !is_array($values['abilities'])) {
-                        print ('<option value="Бессмертие">Бессмертие</option>
-                        <option value="Прохождение сквозь стены">Прохождение сквозь стены</option>
-                        <option value="Левитация">Левитация</option>');
-                }
-                else {*/
-                echo
-                    '<option value="Бессмертие"'; if (in_array('Бессмертие', $value['abilities'])) {print('selected="selected"');} echo '>Бессмертие</option>
-                     <option value="Прохождение сквозь стены"'; if (in_array('Прохождение сквозь стены', $value['abilities'])) {print('selected="selected"');} echo '>Прохождение сквозь стены</option>
-                     <option value="Левитация"'; if (in_array('Левитация', $value['abilities'])) {print('selected="selected"');} echo '>Левитация</option>';
-                //}
-        echo '</select>
-    </label><br>
-        
-    <label>
-        Биография:<br/>
-        <textarea id="data" name="biography">'; print $value['biography']; echo '</textarea>  
-        </label><br>
-        
-    <div> <input id="sub" name="save" type="submit" value="Сохранить"> </div>
-    <div> <input id="sub" name="delete" type="submit" value="Удалить"> </div>';
-    ?>
+          <?php
+          foreach ($values as $val) {
+                  $birthdate=$val['birth_date'];
+                  print 
+                  '<tr>
+                      <td> <input name="app_id'.$val['app_id'].'" value="'; print $val['app_id']; print '"> </td>
+                      <td> <input name="name'.$val['app_id'].'" value="'; print $val['name']; print '"> </td>
+                      <td> <input name="email'.$val['app_id'].'" value="'; print $val['email']; print '"> </td>
+                      <td> <select name="birth_date'.$val['app_id'].'">';
+                              for ($i = 1922; $i <= 2022; $i++) {
+                                if ($i==$val['birth_date']){
+                                 printf('<option value="%d">%d год</option>', $i, $i);
+                                }
+                              }
+                           print '</select> </td>
+                      <td> <label><input type="radio" name="sex'.$val['app_id'].'" value="ж"'; if ($val['sex']=='ж') {print 'checked="checked"';} print '>Ж</label>
+                           <label><input type="radio" name="sex'.$val['app_id'].'" value="м"'; if ($val['sex']=='м') {print 'checked="checked"';} print '>М</label> 
+                      </td>     
+                      <td> <label><input type="radio" name="amount_of_limbs'.$val['app_id'].'" value="2"'; if ($val['amount_of_limbs']==2) {print 'checked="checked"';} print '> 2</label>
+                           <label><input type="radio" name="amount_of_limbs'.$val['app_id'].'" value="3"'; if ($val['amount_of_limbs']==3) {print 'checked="checked"';} print '> 3</label>
+                           <label><input type="radio" name="amount_of_limbs'.$val['app_id'].'" value="4"'; if ($val['amount_of_limbs']==4) {print 'checked="checked"';} print '> 4</label>
+                      </td>
+                      <td> <select name="abilities[]'.$val['app_id'].'" multiple="multiple"> 
+                           <option value="Бессмертие"'; if (in_array('Бессмертие', $val['abilities'])) {print 'selected="selected"';} print '>Бессмертие</option>
+                           <option value="Прохождение сквозь стены"'; if (in_array('Прохождение сквозь стены', $val['abilities'])) {print 'selected="selected"';} print '>Прохождение сквозь стены</option>
+                           <option value="Левитация"'; if (in_array('Левитация', $val['abilities'])) {print 'selected="selected"';} print '>Левитация</option>
+                      </td>
+                      <td> <textarea name="biography'.$val['app_id'].'">'; print $val['biography']; print '</textarea> </td>
+                      <td> <div> <input name="save'.$val['app_id'].'" type="submit" value="Сохранить'.$val['app_id'].'"> </div>
+                           <div> <input name="delete'.$val['app_id']'" type="submit" value="Удалить'.$val['app_id'].'"> </div>
+                      </td>
+                  </tr>';
+          }
+          ?>
+  </table>
 </form>
+        
         <?php
             $imm_id=10;
             $wall_id=20;
@@ -150,9 +99,9 @@ if (!empty($messages)) {
             $stmt->execute([$fly_id]);
             $fly_count=stmt->fetchColumn();
             
-            echo '<br>Количество пользователей со сверхспособностью "Бессмертие": '; print(empty($imm_count) ? '0' : $imm_count); echo '<br>
-            Количество пользователей со сверхспособностью "Прохождение сквозь стены": '; print(empty($wall_count) ? '0' : $wall_count); echo '<br>
-            Количество пользователей со сверхспособностью "Левитация": '; print(empty($fly_count) ? '0' : $fly_count); echo '<br>';
+            print '<br>Количество пользователей со сверхспособностью "Бессмертие": '; print(empty($imm_count) ? '0' : $imm_count); print '<br>
+            Количество пользователей со сверхспособностью "Прохождение сквозь стены": '; print(empty($wall_count) ? '0' : $wall_count); print '<br>
+            Количество пользователей со сверхспособностью "Левитация": '; print(empty($fly_count) ? '0' : $fly_count); print '<br>';
         ?>
 </body>
 
