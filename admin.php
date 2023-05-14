@@ -51,7 +51,7 @@ print('Вы успешно авторизовались и видите защи
           foreach ($values as $val) {
                   $stmt = $db->prepare("select ab_id from application_ability where app_id = ?");
                   $stmt->execute([$val['id']]);
-                  $abil = serialize($stmt->fetchAll(PDO::FETCH_COLUMN));
+                  $abil = $stmt->fetchAll(PDO::FETCH_COLUMN);
                   
                   $birthdate=$val['birth_date'];
                   print 
