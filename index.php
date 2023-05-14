@@ -2,20 +2,15 @@
 header('Content-Type: text/html; charset=UTF-8');
 
 include('connection.php');
+//include('admin.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-  // Массив для временного хранения сообщений пользователю.
   $messages = array();
-  // В суперглобальном массиве $_COOKIE PHP хранит все имена и значения куки текущего запроса.
-  // Выдаем сообщение об успешном сохранении.
-  if (!empty($_COOKIE['save'])) {
-    // Удаляем куку, указывая время устаревания в прошлом.
+  /*if (!empty($_COOKIE['save'])) {
     setcookie('save', '', 100000);
     setcookie('login', '', 100000);
     setcookie('password', '', 100000);
-    // Выводим сообщение пользователю.
     $messages[] = 'Спасибо, результаты сохранены.';
-    // Если в куках есть пароль, то выводим сообщение.
     if (!empty($_COOKIE['password'])) {
       $messages[] = sprintf('Вы можете <a href="login.php">войти</a> с логином <strong>%s</strong>
         и паролем <strong>%s</strong> для изменения данных.',
@@ -24,8 +19,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
     setcookie('login', '', 100000);
     setcookie('password', '', 100000);
+  }*/
+  
+  try {
+        $stmt = $db->prepare("SELECT id, name, email, birth_date, sex, amount_of_limbs, biography FROM application1");
+        $stmt->execute();
+        $values = $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
-    
+  catch (PDOException $e) {
+        print('Error : ' . $e->getMessage());
+        exit();
+  }
+   
   // Складываем признак ошибок в массив.
   $errors = array();
   $errors['name'] = !empty($_COOKIE['name_error']);
@@ -74,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   }
 
   // Складываем предыдущие значения полей в массив, если есть.
-  $values = array();
+  /*$values = array();
   $values['name'] = empty($_COOKIE['name_value']) ? '' : strip_tags($_COOKIE['name_value']);
   $values['email'] = empty($_COOKIE['email_value']) ? '' : strip_tags($_COOKIE['email_value']);
   $values['birth_date'] = empty($_COOKIE['birthDate_value']) ? '' : (int) $_COOKIE['birthDate_value'];
@@ -82,9 +87,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $values['amount_of_limbs'] = empty($_COOKIE['amountOfLimbs_value']) ? '' : (int) $_COOKIE['amountOfLimbs_value'];
   $values['abilities'] = empty($_COOKIE['abilities_value']) ? '' : unserialize($_COOKIE['abilities_value']);
   $values['biography'] = empty($_COOKIE['biography_value']) ? '' : strip_tags($_COOKIE['biography_value']);
-  $values['informed'] = empty($_COOKIE['informed_value']) ? '' : $_COOKIE['informed_value'];
+  $values['informed'] = empty($_COOKIE['informed_value']) ? '' : $_COOKIE['informed_value'];*/
   
-   if (count(array_filter($errors)) === 0 && !empty($_COOKIE[session_name()]) && session_start() && !empty($_SESSION['login'])) {
+   /*if (count(array_filter($errors)) === 0 && !empty($_COOKIE[session_name()]) && session_start() && !empty($_SESSION['login'])) {
     // TODO: загрузить данные пользователя из БД
     // и заполнить переменную $values,
     // предварительно санитизовав.
@@ -145,8 +150,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         exit();
     }
     printf('Вход с логином %s, uid %d', $_SESSION['login'], $_SESSION['uid']);
-  }
-  include('form.php');
+  }*/
+  //include('form.php');
+  
+  include('admin.php');
 }
 
 // Иначе, если запрос был методом POST, т.е. нужно проверить данные и сохранить их в XML-файл.
