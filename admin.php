@@ -74,9 +74,9 @@ print('Вы успешно авторизовались и видите защи
                            <label><input type="radio" name="amount_of_limbs'.$val['id'].'" value="4"'; if ($val['amount_of_limbs']==4) {print 'checked="checked"';} print '> 4</label>
                       </td>
                       <td> <select name="abilities'.$val['id'].'[]" multiple="multiple"> 
-                           <option value="Бессмертие"'; if (in_array('Бессмертие', $abil)) {print 'selected="selected"';} print '>Бессмертие</option>
-                           <option value="Прохождение сквозь стены"'; if (in_array('Прохождение сквозь стены', $abil)) {print 'selected="selected"';} print '>Прохождение сквозь стены</option>
-                           <option value="Левитация"'; if (in_array('Левитация', $abil)) {print 'selected="selected"';} print '>Левитация</option>
+                           <option value="Бессмертие"'; if (in_array(10, $abil)) {print 'selected="selected"';} print '>Бессмертие</option>
+                           <option value="Прохождение сквозь стены"'; if (in_array(20, $abil)) {print 'selected="selected"';} print '>Прохождение сквозь стены</option>
+                           <option value="Левитация"'; if (in_array(30, $abil)) {print 'selected="selected"';} print '>Левитация</option>
                       </td>
                       <td> <textarea name="biography'.$val['id'].'">'; print $val['biography']; print '</textarea> </td>
                       <td> <div> <input name="save'.$val['id'].'" type="submit" value="Сохранить изменения для пользователя '.$val['id'].'"> </div>
