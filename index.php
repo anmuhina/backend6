@@ -73,7 +73,7 @@ else {
   $errors = FALSE;
   
   foreach ($_POST as $key => $value) {
-        if (preg_match('/^Удалить(\d+)$/', $key, $matches)) {
+        if (preg_match('/^Удалить пользователя (\d+)$/', $key, $matches)) {
             $app_id = $matches[1];
             $stmt = $db->prepare("delete from application1 where id = ?");
             $stmt->execute([$app_id]);
@@ -82,7 +82,7 @@ else {
             $stmt = $db->prepare("delete from application_ability where id = ?");
             $stmt->execute([$app_id]);
         }
-        if (preg_match('/^Сохранить(\d+)$/', $key, $matches)) {
+        if (preg_match('/^Сохранить изменения для пользователя (\d+)$/', $key, $matches)) {
             $app_id = $matches[1];
             $info = array();
             $info['name'] = $_POST['name'.$app_id];
