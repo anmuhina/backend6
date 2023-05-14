@@ -8,15 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $messages = array();
   
   try {
-        /*$stmt = $db->prepare("SELECT id, name, email, birth_date, sex, amount_of_limbs, biography FROM application1");
-        $stmt->execute();
-        //$values = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $values = $stmt->fetchAll();*/
-    
-        $stmt = $db->prepare("select id, name, email, birth_date, sex, amount_of_limbs, abilities, biography from application1 join application_ability on id=app_id");
+        $stmt = $db->prepare("SELECT id, name, email, birth_date, sex, amount_of_limbs, biography FROM application1");
         $stmt->execute();
         //$values = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $values = $stmt->fetchAll();
+    
   }
   catch (PDOException $e) {
         print('Error : ' . $e->getMessage());
