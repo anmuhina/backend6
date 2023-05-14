@@ -4,6 +4,8 @@
 <body>
 
 <?php
+        
+        include('connection.php');
 
 /**
  * Задача 6. Реализовать вход администратора с использованием
@@ -57,7 +59,7 @@ if (!empty($messages)) {
     </label><br>
     <label>
         Email:<br>
-        <input id="data" name="email" type="email" value="'; print($values['email']); echo '" >
+        <input id="data" name="email" type="email" value="'; print($value['email']); echo '" >
     </label><br>
     <label>
         Дата рождения:<br>
@@ -88,7 +90,7 @@ if (!empty($messages)) {
                 }
                 else {*/
                   echo '<label><input id="data" type="radio" name="sex" value="ж"'; if ($value['sex']=='ж') print('checked="checked"'); echo '>Ж</label> 
-                  <label><input id="data" type="radio" name="sex" value="м"'; if ($values['sex']=='м') print('checked="checked"'); echo '>М</label><br>';       
+                  <label><input id="data" type="radio" name="sex" value="м"'; if ($value['sex']=='м') print('checked="checked"'); echo '>М</label><br>';       
                 //}
        echo '</div>
         
@@ -133,5 +135,24 @@ if (!empty($messages)) {
     <div> <input id="sub" name="delete" type="submit" value="Удалить"> </div>';
     ?>
 </form>
+        <?php
+            $imm_id=10;
+            $wall_id=20;
+            $fly_id=30;
+            
+            $stmt=$db->prepare("select count(app_id) from application_ability group by ab_id having ab_id=?");
+            $stmt->execute([$imm_id]);
+            $imm_count=stmt->fetchColumn();
+            
+            $stmt->execute([$wall_id]);
+            $wall_count=stmt->fetchColumn();
+            
+            $stmt->execute([$fly_id]);
+            $fly_count=stmt->fetchColumn();
+            
+            echo '<br>Количество пользователей со сверхспособностью "Бессмертие": '; print(empty($imm_count) ? '0' : $imm_count); echo '<br>
+            Количество пользователей со сверхспособностью "Прохождение сквозь стены": '; print(empty($wall_count) ? '0' : $wall_count); echo '<br>
+            Количество пользователей со сверхспособностью "Левитация": '; print(empty($fly_count) ? '0' : $fly_count); echo '<br>';
+        ?>
 </body>
 
