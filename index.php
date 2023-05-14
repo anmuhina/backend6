@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $stmt = $db->prepare("select id, name, email, birth_date, sex, amount_of_limbs, abilities, biography from application1 join application_ability on id=app_id");
         $stmt->execute();
         //$values = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $values = $stmt->fetchAll();*/
+        $values = $stmt->fetchAll();
   }
   catch (PDOException $e) {
         print('Error : ' . $e->getMessage());
