@@ -49,9 +49,9 @@ print('Вы успешно авторизовались и видите защи
           
           <?php
           foreach ($values as $val) {
-                  /*$stmt = $db->prepare("select ab_id from application_ability where app_id = ?");
-                  $stmt->execute([$values['id']]);
-                  $abil = $stmt->fetchAll(PDO::FETCH_COLUMN);*/
+                  $stmt = $db->prepare("select ab_id from application_ability where app_id = ?");
+                  $stmt->execute([$value['id']]);
+                  $abil = $stmt->fetchAll(PDO::FETCH_COLUMN);
                   
                   $birthdate=$val['birth_date'];
                   print 
