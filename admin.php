@@ -52,9 +52,9 @@ print('Вы успешно авторизовались и видите защи
                   $birthdate=$val['birth_date'];
                   print 
                   '<tr>
-                      <td> <input name="app_id'.$val['app_id'].'" value="'; print $val['app_id']; print '"> </td>
-                      <td> <input name="name'.$val['app_id'].'" value="'; print $val['name']; print '"> </td>
-                      <td> <input name="email'.$val['app_id'].'" value="'; print $val['email']; print '"> </td>
+                      <td> <input name="app_id'.$val['id'].'" value="'; print $val['id']; print '"> </td>
+                      <td> <input name="name'.$val['id'].'" value="'; print $val['name']; print '"> </td>
+                      <td> <input name="email'.$val['id'].'" value="'; print $val['email']; print '"> </td>
                       <td> <select name="birth_date'.$val['app_id'].'">';
                               for ($i = 1922; $i <= 2022; $i++) {
                                 if ($i==$val['birth_date']){
@@ -62,21 +62,21 @@ print('Вы успешно авторизовались и видите защи
                                 }
                               }
                            print '</select> </td>
-                      <td> <label><input type="radio" name="sex'.$val['app_id'].'" value="ж"'; if ($val['sex']=='ж') {print 'checked="checked"';} print '>Ж</label>
-                           <label><input type="radio" name="sex'.$val['app_id'].'" value="м"'; if ($val['sex']=='м') {print 'checked="checked"';} print '>М</label> 
+                      <td> <label><input type="radio" name="sex'.$val['id'].'" value="ж"'; if ($val['sex']=='ж') {print 'checked="checked"';} print '>Ж</label>
+                           <label><input type="radio" name="sex'.$val['id'].'" value="м"'; if ($val['sex']=='м') {print 'checked="checked"';} print '>М</label> 
                       </td>     
-                      <td> <label><input type="radio" name="amount_of_limbs'.$val['app_id'].'" value="2"'; if ($val['amount_of_limbs']==2) {print 'checked="checked"';} print '> 2</label>
-                           <label><input type="radio" name="amount_of_limbs'.$val['app_id'].'" value="3"'; if ($val['amount_of_limbs']==3) {print 'checked="checked"';} print '> 3</label>
-                           <label><input type="radio" name="amount_of_limbs'.$val['app_id'].'" value="4"'; if ($val['amount_of_limbs']==4) {print 'checked="checked"';} print '> 4</label>
+                      <td> <label><input type="radio" name="amount_of_limbs'.$val['id'].'" value="2"'; if ($val['amount_of_limbs']==2) {print 'checked="checked"';} print '> 2</label>
+                           <label><input type="radio" name="amount_of_limbs'.$val['id'].'" value="3"'; if ($val['amount_of_limbs']==3) {print 'checked="checked"';} print '> 3</label>
+                           <label><input type="radio" name="amount_of_limbs'.$val['id'].'" value="4"'; if ($val['amount_of_limbs']==4) {print 'checked="checked"';} print '> 4</label>
                       </td>
-                      <td> <select name="abilities[]'.$val['app_id'].'" multiple="multiple"> 
+                      <td> <select name="abilities[]'.$val['id'].'" multiple="multiple"> 
                            <option value="Бессмертие"'; if (in_array('Бессмертие', $val['abilities'])) {print 'selected="selected"';} print '>Бессмертие</option>
                            <option value="Прохождение сквозь стены"'; if (in_array('Прохождение сквозь стены', $val['abilities'])) {print 'selected="selected"';} print '>Прохождение сквозь стены</option>
                            <option value="Левитация"'; if (in_array('Левитация', $val['abilities'])) {print 'selected="selected"';} print '>Левитация</option>
                       </td>
-                      <td> <textarea name="biography'.$val['app_id'].'">'; print $val['biography']; print '</textarea> </td>
-                      <td> <div> <input name="save'.$val['app_id'].'" type="submit" value="Сохранить'.$val['app_id'].'"> </div>
-                           <div> <input name="delete'.$val['app_id'].'" type="submit" value="Удалить'.$val['app_id'].'"> </div>
+                      <td> <textarea name="biography'.$val['id'].'">'; print $val['biography']; print '</textarea> </td>
+                      <td> <div> <input name="save'.$val['id'].'" type="submit" value="Сохранить'.$val['id'].'"> </div>
+                           <div> <input name="delete'.$val['id'].'" type="submit" value="Удалить'.$val['id'].'"> </div>
                       </td>
                   </tr>';
           }
