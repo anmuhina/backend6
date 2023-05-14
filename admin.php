@@ -75,8 +75,8 @@ print('Вы успешно авторизовались и видите защи
                            <option value="Левитация"'; if (in_array('Левитация', $val['abilities'])) {print 'selected="selected"';} print '>Левитация</option>
                       </td>
                       <td> <textarea name="biography'.$val['app_id'].'">'; print $val['biography']; print '</textarea> </td>
-                      <td> <div> <input name="save'.$val['app_id'].'" type="submit" value="Сохранить'.$val['app_id'].'"> </div>
-                           <div> <input name="delete'.$val['app_id']'" type="submit" value="Удалить'.$val['app_id'].'"> </div>
+                      <td> <div> <input name="save'.$val['app_id'].'" type="submit" value="Save'.$val['app_id'].'"> </div>
+                           <div> <input name="delete'.$val['app_id']'" type="submit" value="Delete'.$val['app_id'].'"> </div>
                       </td>
                   </tr>';
           }
