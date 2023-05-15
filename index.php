@@ -70,14 +70,14 @@ else {
   $errors = FALSE;
   
   foreach ($_POST as $key => $value) {
-        if (preg_match('/^Delete user (\d+)$/', $key, $matches)) {
+        if (preg_match('/^Delete_user_(\d+)$/', $key, $matches)) {
             $app_id = $matches[1];
             $stmt = $db->prepare("delete from application1 where id = ?");
             $stmt->execute([$app_id]);
             $stmt = $db->prepare("delete from application_ability where app_id = ?");
             $stmt->execute([$app_id]);
         }
-        if (preg_match('/^Update user (\d+)$/', $key, $matches)) {
+        if (preg_match('/^Update_user_(\d+)$/', $key, $matches)) {
             $app_id = $matches[1];
             $info = array();
             $info['name'] = $_POST['name' . $app_id];
