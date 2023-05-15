@@ -1,8 +1,39 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <!--<link rel="stylesheet" href="style.css" type="text/css"/>-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+    margin:0;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 25px;
+}
+.forma {
+    width: 100%;
+    //margin: auto;
+    background-color: rgb(255, 105, 180);
+    //border: 4px solid #FF1493;
+    //border-radius: 25px;
+    padding: 20px;
+}
+table {
+    width: 100%;
+    margin: 10px;
+    border-collapse: collapse;
+    border: 4px solid #FF1493;
+}
+td, tr, th {
+    border: 1px solid #FF1493;
+}
+tr {
+    text-align: center;
+}
+
+        </style>
 </head> 
 <body>
 
