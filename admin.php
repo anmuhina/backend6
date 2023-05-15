@@ -1,4 +1,7 @@
-<head>
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
 </head> 
 <body>
@@ -108,4 +111,5 @@ print('Вы успешно авторизовались и видите защи
             Количество пользователей со сверхспособностью "Левитация": '; print(empty($fly_count) ? '0' : $fly_count); print '<br>';
         ?>
 </body>
+</html>
 
