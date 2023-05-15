@@ -29,6 +29,11 @@
            tr {
                text-align: center;
            }
+           #sub {
+               padding: 5px;
+               color: white;
+               background-color: #FF1493;
+           }
      </style>
 </head> 
 <body>
@@ -109,8 +114,8 @@ print('Вы успешно авторизовались и видите защи
                            <option value="Левитация"'; if (in_array(30, $abil)) {print 'selected="selected"';} print '>Левитация</option>
                       </td>
                       <td> <textarea name="biography'.$val['id'].'">'; print $val['biography']; print '</textarea> </td>
-                      <td> <div> <input name="update'.$val['id'].'" type="submit" value="update'.$val['id'].'"> </div>
-                           <div> <input name="delete'.$val['id'].'" type="submit" value="delete'.$val['id'].'"> </div>
+                      <td> <div> <input id="sub" name="update'.$val['id'].'" type="submit" value="update'.$val['id'].'"> </div>
+                           <div> <input id="sub" name="delete'.$val['id'].'" type="submit" value="delete'.$val['id'].'"> </div>
                       </td>
                   </tr>';
           }
