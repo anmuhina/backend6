@@ -91,18 +91,11 @@ print('Вы успешно авторизовались и видите защи
                       <td> <input name="name'.$val['id'].'" value="'; print $val['name']; print '"> </td>
                       <td> <input name="email'.$val['id'].'" value="'; print $val['email']; print '"> </td>
                       <td> <select name="birth_date'.$val['id'].'">';
-                              /*for ($i = 1922; $i <= 2022; $i++) {
-                                if ($i==$birthdate){
-                                 printf('<option value="%d">%d год</option>', $i, $i);
-                                }
-                              }*/
-              
                          printf('<option value="%d">%d год</option>', $birthdate, $birthdate);
                          for ($i = 1922; $i <= 2022; $i++) {
                             printf('<option value="%d">%d год</option>', $i, $i);
-                         }
-                             
-                           print '</select> </td>
+                         }   
+                         print '</select> </td>
                       <td> <label><input type="radio" name="sex'.$val['id'].'" value="ж"'; if ($val['sex']=='ж') {print 'checked="checked"';} print '>Ж</label>
                            <label><input type="radio" name="sex'.$val['id'].'" value="м"'; if ($val['sex']=='м') {print 'checked="checked"';} print '>М</label> 
                       </td>     
@@ -140,9 +133,9 @@ print('Вы успешно авторизовались и видите защи
             $stmt->execute([$fly_id]);
             $fly_count=$stmt->fetchColumn();
             
-            print '<br>Количество пользователей со сверхспособностью "Бессмертие": '; print(empty($imm_count) ? '0' : $imm_count); print '<br>
-            Количество пользователей со сверхспособностью "Прохождение сквозь стены": '; print(empty($wall_count) ? '0' : $wall_count); print '<br>
-            Количество пользователей со сверхспособностью "Левитация": '; print(empty($fly_count) ? '0' : $fly_count); print '<br>';
+            print '<br>Количество пользователей со сверхспособностью "Бессмертие": '; print(empty($imm_count) ? 'no users' : $imm_count); print '<br>
+            Количество пользователей со сверхспособностью "Прохождение сквозь стены": '; print(empty($wall_count) ? 'no users' : $wall_count); print '<br>
+            Количество пользователей со сверхспособностью "Левитация": '; print(empty($fly_count) ? 'no users' : $fly_count); print '<br>';
         ?>
     
 </body>
