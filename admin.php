@@ -1,7 +1,4 @@
-<!--<!DOCTYPE html>
-<html lang="ru">-->
-    <head>
-        <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<head>
         <style>
             body {
                margin:0;
@@ -94,11 +91,17 @@ print('Вы успешно авторизовались и видите защи
                       <td> <input name="name'.$val['id'].'" value="'; print $val['name']; print '"> </td>
                       <td> <input name="email'.$val['id'].'" value="'; print $val['email']; print '"> </td>
                       <td> <select name="birth_date'.$val['id'].'">';
-                              for ($i = 1922; $i <= 2022; $i++) {
-                                if ($i==$val['birth_date']){
+                              /*for ($i = 1922; $i <= 2022; $i++) {
+                                if ($i==$birthdate){
                                  printf('<option value="%d">%d год</option>', $i, $i);
                                 }
-                              }
+                              }*/
+              
+                         printf('<option value="%d">%d год</option>', $birthdate, $birthdate);
+                         for ($i = 1922; $i <= 2022; $i++) {
+                            printf('<option value="%d">%d год</option>', $i, $i);
+                         }
+                             
                            print '</select> </td>
                       <td> <label><input type="radio" name="sex'.$val['id'].'" value="ж"'; if ($val['sex']=='ж') {print 'checked="checked"';} print '>Ж</label>
                            <label><input type="radio" name="sex'.$val['id'].'" value="м"'; if ($val['sex']=='м') {print 'checked="checked"';} print '>М</label> 
@@ -143,5 +146,4 @@ print('Вы успешно авторизовались и видите защи
         ?>
     
 </body>
-<!--</html>-->
 
