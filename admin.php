@@ -7,7 +7,8 @@
 <body>
 
 <?php
-        
+     
+        include('style.css');
         include('connection.php');
 
 /**
