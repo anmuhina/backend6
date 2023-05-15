@@ -9,8 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   try {
         $stmt = $db->prepare("select id, name, email, birth_date, sex, amount_of_limbs, biography from application1");
         $stmt->execute();
-        $values = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        //$values = $stmt->fetchAll();
+        //$values = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $values = $stmt->fetchAll();
     
   }
   catch (PDOException $e) {
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   }
   
   include('admin.php');
-  exit();
+  //exit();
 }
 
 // Иначе, если запрос был методом POST, т.е. нужно проверить данные и сохранить их в XML-файл.
@@ -157,8 +157,8 @@ else {
           
             $stmt = $db->prepare("select name, email, birth_date, sex, amount_of_limbs, biography from application1 where id = ?");
             $stmt->execute([$app_id]);
-            $info1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            //$info1 = $stmt->fetchAll();
+            //$info1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $info1 = $stmt->fetchAll();
 
             $stmt = $db->prepare("select ab_id from application_ability where app_id = ?");
             $stmt->execute([$app_id]);
