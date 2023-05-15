@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!--<!DOCTYPE html>
+<html lang="ru">-->
     <head>
-        <!--<link rel="stylesheet" href="style.css" type="text/css"/>-->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
         <style>
             body {
                margin:0;
@@ -144,5 +143,5 @@ print('Вы успешно авторизовались и видите защи
         ?>
     
 </body>
-</html>
+<!--</html>-->
 
