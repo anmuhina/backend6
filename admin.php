@@ -89,7 +89,7 @@ print('Вы успешно авторизовались и видите защи
                       <td> <input name="app_id'.$val['id'].'" value="'; print $val['id']; print '"> </td>
                       <td> <input name="name'.$val['id'].'" value="'; print $val['name']; print '"> </td>
                       <td> <input name="email'.$val['id'].'" value="'; print $val['email']; print '"> </td>
-                      <td> <select name="birth_date'.$val['app_id'].'">';
+                      <td> <select name="birth_date'.$val['id'].'">';
                               for ($i = 1922; $i <= 2022; $i++) {
                                 if ($i==$val['birth_date']){
                                  printf('<option value="%d">%d год</option>', $i, $i);
