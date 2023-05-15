@@ -63,26 +63,6 @@ print('Вы успешно авторизовались и видите защи
  Реализовать просмотр и удаление всех данных.
  *********-->
     
-    <?php
-            $imm_id=10;
-            $wall_id=20;
-            $fly_id=30;
-            
-            $stmt=$db->prepare("select count(app_id) from application_ability group by ab_id having ab_id=?");
-            $stmt->execute([$imm_id]);
-            $imm_count=$stmt->fetchColumn();
-            
-            $stmt->execute([$wall_id]);
-            $wall_count=$stmt->fetchColumn();
-            
-            $stmt->execute([$fly_id]);
-            $fly_count=$stmt->fetchColumn();
-            
-            print '<br>Количество пользователей со сверхспособностью "Бессмертие": '; print(empty($imm_count) ? '0' : $imm_count); print '<br>
-            Количество пользователей со сверхспособностью "Прохождение сквозь стены": '; print(empty($wall_count) ? '0' : $wall_count); print '<br>
-            Количество пользователей со сверхспособностью "Левитация": '; print(empty($fly_count) ? '0' : $fly_count); print '<br>';
-        ?>
-      
 <form action="" class="forma" method="POST">
   <table>
           <tr>
@@ -138,8 +118,8 @@ print('Вы успешно авторизовались и видите защи
   </table>
 </form>
         
-        <!--<?php-->
-            /*$imm_id=10;
+        <?php
+            $imm_id=10;
             $wall_id=20;
             $fly_id=30;
             
@@ -156,7 +136,8 @@ print('Вы успешно авторизовались и видите защи
             print '<br>Количество пользователей со сверхспособностью "Бессмертие": '; print(empty($imm_count) ? '0' : $imm_count); print '<br>
             Количество пользователей со сверхспособностью "Прохождение сквозь стены": '; print(empty($wall_count) ? '0' : $wall_count); print '<br>
             Количество пользователей со сверхспособностью "Левитация": '; print(empty($fly_count) ? '0' : $fly_count); print '<br>';
-        ?>*/
+        ?>
+    
 </body>
 </html>
 
